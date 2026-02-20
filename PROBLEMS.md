@@ -1,0 +1,3 @@
+- You can never see the whole strings in the footer
+- Mix of swedish and english
+- 

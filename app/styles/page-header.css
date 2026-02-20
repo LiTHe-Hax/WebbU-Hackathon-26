@@ -1,0 +1,101 @@
+.page-header {
+    position: sticky;
+    top: 0;
+    flex-flow: column nowrap;
+    
+    .top-bar {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        height: 3rem;
+        box-sizing: border-box;
+        background-color: #80DCF3;
+
+        > img {
+            padding: 0.75rem 0;
+            padding-left: 0.75rem;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .search-container {
+            display: flex;
+            flex-flow: row nowrap;
+            flex-grow: 1;
+            gap: 0.125rem;
+            margin: 0 0.75rem;
+            padding: 0.125rem;
+            height: 2rem;
+            box-sizing: border-box;
+            border-radius: 0.25rem;
+            background-color: #fff;
+            color: #000;
+            font-size: 0.75em;
+            box-shadow: 0 2px 4px rgba(0,0,0,.14),0 0 2px rgba(0,0,0,.12);
+
+            > button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0.35rem;
+                box-sizing: border-box;
+                border-radius: 0.25rem;
+                color: rgb(37, 103, 128);
+                fill: rgb(37, 103, 128);
+
+                svg {
+                    height: 100%;
+                }
+
+                &:hover {
+                    background-color: rgb(234, 234, 234);
+                }
+            }
+
+            > input {
+                flex-grow: 1;
+            }
+        }
+
+        > button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            aspect-ratio: 1/1;
+            box-sizing: border-box;
+            background-color: transparent;
+            color: #000;
+            fill: #000;
+
+            &:hover {
+                background-color: #2d7e9d;
+                color: #fff;
+                fill: #fff;
+            }
+
+            svg {
+                width: 1rem;
+                aspect-ratio: 1/1;
+            }
+
+            img {
+                padding: 0.5rem;
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    .breadcrumbs-bar {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        border-bottom: 1px solid #e1dfdd;
+        height: 2.5rem;
+        box-sizing: border-box;
+        background-color: #f3f2f1;
+    }
+}

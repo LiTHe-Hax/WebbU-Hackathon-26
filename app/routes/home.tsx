@@ -1,5 +1,8 @@
+import CoursesSection from "~/sections/courses-section";
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import PageHeader from "~/sections/page-header";
+import Footer from "~/sections/footer";
+import Links from "~/sections/links-section";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -9,5 +12,14 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <Welcome />;
+  return <>
+    <PageHeader/>
+    <main>
+      <div style={{ padding: "0 16px", }}>
+        <CoursesSection/>
+        <Links/>
+      </div>
+    </main>
+    <Footer/>
+  </>;
 }
