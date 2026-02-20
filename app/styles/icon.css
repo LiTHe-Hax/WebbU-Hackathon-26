@@ -1,0 +1,11 @@
+.icon {
+    display: inline;
+    height: 1em;
+    color: inherit;
+    fill: inherit;
+
+    &.block {
+        display: block;
+    }
+}
+
