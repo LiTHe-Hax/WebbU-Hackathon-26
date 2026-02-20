@@ -3,6 +3,7 @@ import type { Route } from "./+types/home";
 import PageHeader from "~/sections/page-header";
 import Footer from "~/sections/footer";
 import Links from "~/sections/links-section";
+import NewsSection from "~/sections/news-section";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -17,6 +18,7 @@ export default function Home() {
     <main>
       <div style={{ padding: "0 16px", }}>
         <CoursesSection/>
+        <NewsSection/>
         <Links/>
       </div>
     </main>
