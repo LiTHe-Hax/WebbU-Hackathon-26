@@ -16,29 +16,49 @@ export default function Footer() {
         fontWeight: "400",
         gap: "24px"
     }}>
-        <div>
-            <h4 style={{ marginBottom: "8px" }}>Lisam-support</h4>
-            <p>Inspiration</p>
-            <p>Manuals & guides</p>
-            <p>Contact & support</p>
+        <div style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px"
+        }}>
+            <h4 style={{ fontWeight: "400" }}>Lisam-support</h4>
+            <p style={{ fontWeight: "300" }}>Inspiration</p>
+            <p style={{ fontWeight: "300" }}>Manuals & guides</p>
+            <p style={{ fontWeight: "300" }}>Contact & support</p>
         </div>
-        <div>
-            <h4 style={{ marginBottom: "8px" }}>Liunet</h4>
-            <p>Liunet for students</p>
+        <div style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px"
+        }}>
+            <h4 style={{ fontWeight: "400" }}>Liunet</h4>
+            <p style={{ fontWeight: "300" }}>Liunet for students</p>
         </div>
-        <div>
-            <h4 style={{ marginBottom: "8px" }}>Studyinfo</h4>
-            <p>Course- och programm...</p>
+        <div style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px"
+        }}>
+            <h4 style={{ fontWeight: "400" }}>Studyinfo</h4>
+            <p style={{ fontWeight: "300" }}>Course- och programm...</p>
         </div>
-        <div>
-            <h4 style={{ marginBottom: "8px" }}>Info Centre</h4>
-            <p>Submit a question to Inf...</p>
-            <p><Icon type="phone" /> 013-28 10 00</p>
+        <div style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px"
+        }}>
+            <h4 style={{ fontWeight: "400" }}>Info Centre</h4>
+            <p style={{ fontWeight: "300" }}>Submit a question to Inf...</p>
+            <p style={{ fontWeight: "300" }}><Icon type="phone" /> 013-28 10 00</p>
         </div>
-        <div>
-            <h4 style={{ marginBottom: "8px" }}>IT Helpdesk</h4>
-            <p>Submit a question to IT...</p>
-            <p><Icon type="phone" /> 013-28 28 28</p>
+        <div style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "8px"
+        }}>
+            <h4 style={{ fontWeight: "400" }}>IT Helpdesk</h4>
+            <p style={{ fontWeight: "300" }}>Submit a question to IT...</p>
+            <p style={{ fontWeight: "300" }}><Icon type="phone" /> 013-28 28 28</p>
         </div>
     </div>
   </div>;

@@ -7,7 +7,10 @@
 }
 
 .linkssection.title {
-    font-size: 40;
+    font-size: 20px;
     margin-bottom: 8px;
+    padding-top: 32px;
+    font-family: Segoe UI,"Segoe UI Web (West European)",-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    font-weight: 500;
     color: #000;
 }
