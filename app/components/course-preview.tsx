@@ -1,4 +1,4 @@
-export default function CoursePreview() {
+export default function CoursePreview({code, name}:{code:string, name:string}) {
   return (
         <div style={{
             background: "#f0f9fa",
@@ -8,7 +8,7 @@ export default function CoursePreview() {
             fontSize: "16px",
             fontWeight: "800"
         }}>
-            <h3>COURSECODE - Course Name</h3>
+            <h3>{code} - {name}</h3>
         </div>
   );
 }
