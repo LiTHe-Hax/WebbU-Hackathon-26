@@ -1,6 +1,7 @@
-export default function ExamPreview() {
+export default function ExamPreview({code, name, date}:{code:string, name:string, date:string}) {
   return (
         <div style={{
+                padding: "12px",
                 borderTop: "1px solid #C7C7C7"
             }}>
                 <div>
@@ -10,10 +11,10 @@ export default function ExamPreview() {
                 </div>
                 <p style={{
                     color: "#616161"
-                }}>COURSECODE - Course Name</p>
+                }}>{code} - {name}</p>
                 <p style={{
                     color: "#616161"
-                }}>Deadline Month X, 2026</p>
+                }}>Deadline {date}, 2026</p>
             </div>
   );
 }

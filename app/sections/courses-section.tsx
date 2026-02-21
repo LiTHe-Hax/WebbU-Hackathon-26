@@ -24,7 +24,8 @@ export default function CoursesSection() {
                     display: "flex",
                     alignItems: "center",
                     fontSize: "20px",
-                    fontWeight: "600"
+                    fontWeight: "600",
+                    gap: "4px"
                 }}>
                     <h2>Courses and programs</h2>
                     <svg width="1em" height="1em" viewBox="0 0 32 32"
@@ -37,9 +38,13 @@ export default function CoursesSection() {
                     fontSize: "14px"
                 }}>Show all</a>
             </div>
-            <CoursePreview/>
-            <CoursePreview/>
-            <CoursePreview/>
+            <div style={{
+                borderBottom: "1px solid #03787c"
+            }}>
+                <CoursePreview code="6CMJU" name="Computer Science and Software Engineering, M Sc in Engineering" />
+                <CoursePreview code="IDAGENUS" name="Gender-awareness course for teaching assistants (IDA)"/>
+                <CoursePreview code="FU2020" name="Fadderutbildning"/>
+            </div>
         </div>
         <div style={{
             background: "white",
@@ -58,7 +63,8 @@ export default function CoursesSection() {
                     display: "flex",
                     alignItems: "center",
                     fontSize: "20px",
-                    fontWeight: "600"
+                    fontWeight: "600",
+                    gap: "4px"
                 }}>
                     <h2>Upcoming for you</h2>
                     <svg width="1em" height="1em" viewBox="0 0 32 32"
@@ -71,9 +77,9 @@ export default function CoursesSection() {
                     fontSize: "14px"
                 }}>Show all</a>
             </div>
-            <ExamPreview/>
-            <ExamPreview/>
-            <ExamPreview/>
+            <ExamPreview code="TATB04" name="Introductory Course in Calculus (TEN3)" date="March 10" />
+            <ExamPreview code="TFYA87" name="Physics and Mechanics (TEN1)" date="March 7"/>
+            <ExamPreview code="TSRT19" name="Automatic Control (TEN1)" date="March 6"/>
         </div>
     </div>
   );

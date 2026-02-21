@@ -11,30 +11,32 @@ export default function Footer() {
     <div style={{
         display: "flex",
         marginTop: "24px",
+        paddingBottom: "24px",
         fontSize: "14px",
-        fontWeight: "400"
+        fontWeight: "400",
+        gap: "24px"
     }}>
         <div>
-            <h4>Lisam-support</h4>
+            <h4 style={{ marginBottom: "8px" }}>Lisam-support</h4>
             <p>Inspiration</p>
             <p>Manuals & guides</p>
             <p>Contact & support</p>
         </div>
         <div>
-            <h4>Liunet</h4>
+            <h4 style={{ marginBottom: "8px" }}>Liunet</h4>
             <p>Liunet for students</p>
         </div>
         <div>
-            <h4>Studyinfo</h4>
+            <h4 style={{ marginBottom: "8px" }}>Studyinfo</h4>
             <p>Course- och programm...</p>
         </div>
         <div>
-            <h4>Info Centre</h4>
+            <h4 style={{ marginBottom: "8px" }}>Info Centre</h4>
             <p>Submit a question to Inf...</p>
             <p><Icon type="phone" /> 013-28 10 00</p>
         </div>
         <div>
-            <h4>IT Helpdesk</h4>
+            <h4 style={{ marginBottom: "8px" }}>IT Helpdesk</h4>
             <p>Submit a question to IT...</p>
             <p><Icon type="phone" /> 013-28 28 28</p>
         </div>
