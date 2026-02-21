@@ -1,4 +1,4 @@
-export default function NewsArticle({imageUrl, title, description}:{imageUrl:string, title:string, description:string}) {
+export default function NewsArticle({imageUrl, title, description, author}:{imageUrl:string, title:string, description:string, author:string}) {
   return <div style={{
         display: "flex",
         borderBottom: "1px solid #C7C7C7",
@@ -8,6 +8,7 @@ export default function NewsArticle({imageUrl, title, description}:{imageUrl:str
     }}>
         <img src={imageUrl} style={{
             width: "150px",
+            minWidth: "150px",
             height: "112px",
             marginRight: "10px"
         }} />
@@ -21,15 +22,15 @@ export default function NewsArticle({imageUrl, title, description}:{imageUrl:str
                 fontSize: "16px"
             }} >
                 <h3 style={{ margin: "0", padding: "0" }} >{title}</h3>
-                <p style={{ color: "#616161", margin: "0", padding: "0" }} >{description}</p>
+                <p style={{ color: "#616161", margin: "0", padding: "0", fontSize: "14px", paddingBottom: "14px"}} >{description}</p>
             </div>
             <div style={{
                 display: "flex",
                 fontSize: "12px",
-                gap: "8px"
+                justifyContent: "space-between",
             }}>
                 <p style={{ color: "#616161" }}>02/10/2026</p>
-                <p>Johanna Milsten in <span style={{ color: "rgb(3, 120, 124)" }}>Civilingenjör i mjukvaruteknik (6CMJ...</span></p>
+                <p>{author} in <span style={{ color: "rgb(3, 120, 124)" }}>Civilingenjör i mjukv...</span></p>
             </div>
         </div>
     </div>;

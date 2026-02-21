@@ -6,11 +6,11 @@
     gap: 8px;
     color: #000;
     background: #ffffff;
-
-    h2 {
-        font-size: 14px;
-        font-weight: bold;
+    
+    &.reverse {
+        flex-direction: column-reverse;
     }
+    
     p {
         font-size: 11px;
         flex-grow: 1;
@@ -19,15 +19,28 @@
         font-size: 11px;
         text-decoration: underline;
         color: rgb(3, 120, 124);
+        align-self: start;
+        
+        &.right {
+            align-self: end;
+        }
     }
 
     &:nth-child(even) {
         background: #f0f9fa;
     }
+
     .title{
         display:flex;
         align-items: center;
         gap: 8px;
+        cursor: pointer;
+
+        h2 {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
         svg {
             width: 16px;
             height: 16px;

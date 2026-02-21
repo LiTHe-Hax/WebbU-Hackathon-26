@@ -98,4 +98,65 @@
         box-sizing: border-box;
         background-color: #f3f2f1;
     }
+
+    .lisam-bar {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 2rem;
+        padding: 1rem 0 1rem 2rem;
+        align-items: center;
+        background: #fff;
+
+        h1 {
+            font-size: 1.5em;
+            font-weight: 600;
+            color: #000;
+        }
+
+        img {
+            width: 3rem;
+            height: 3rem;
+            z-index: 1;
+        }
+
+        .nav-container {
+            display: flex;
+            flex-flow: row nowrap;
+            align-content: center;
+            line-height: 1;
+            gap: 2rem;
+
+            nav {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: end;
+                gap: 22px;
+                font-size: 0.875rem;
+                color: #000;
+            }
+
+            a {
+                color: rgb(50, 49, 48);
+
+                &:hover {
+                    color: rgb(3, 120, 124);
+                }
+
+                &.selected {
+                    position: relative;
+                    font-weight: 600;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: -0.5rem;
+                        border-bottom: 2px solid rgb(3, 120, 124);
+                    }
+                }
+            }
+        }
+    }
 }
