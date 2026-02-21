@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import "~/styles/terminal.css";
 import Icon from "~/components/icon";
+import TwoFactorAuthentication from "~/components/tfa";
 
 
 export function meta({ }: Route.MetaArgs) {
@@ -138,8 +139,13 @@ export default function Home() {
     setTerminalText(newTerminalText);
   }, [commandResponse]);
 
+  const tfaEnabled: boolean = false
+
   return (
     <div style={{cursor: raccursorEnabled ? "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🦝</text></svg>\") 16 0, auto" : "default"}}>
+      { tfaEnabled ?
+      <TwoFactorAuthentication /> :
+      <>
       <PageHeader fireToggled={fireToggled} logoSwitched={logoSwitched} historyAvailable={historyAvailable} />
       <main>
         <div style={{ padding: "0 16px", }}>
@@ -182,6 +188,8 @@ export default function Home() {
           <img src="https://github.com/LiTHe-Hax/website-assets/blob/main/images/2025-2026/contacts/board/tyson_h.jpg?raw=true" />
         </button>
       </div>
+      </>
+      }
     </div>
   );
 }
