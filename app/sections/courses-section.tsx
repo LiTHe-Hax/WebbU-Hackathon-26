@@ -1,6 +1,6 @@
 import CoursePreview from "~/components/course-preview";
 import ExamPreview from "~/components/exam-preview";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function CoursesSection({ isEditing }: { isEditing: boolean }) {
     const [courses, setCourses] = useState([
@@ -26,6 +26,11 @@ export default function CoursesSection({ isEditing }: { isEditing: boolean }) {
             setExams((prev) => prev.filter((e) => e.code !== code));
         }
     };
+
+    useEffect(() => {
+        setCourses(prev => prev.map(c => ({ ...c, isEditing })));
+        setExams(prev => prev.map(e => ({ ...e, isEditing })));
+    }, [isEditing]);
 
     return (
         exams.length <= 0 && courses.length <= 0 ? <></> :

@@ -1,6 +1,18 @@
+import { useState } from "react";
 import background from "~/images/background.png";
 
-export default function TwoFactorAuthentication() {
+function generateNewCode() {
+    return window.crypto.randomUUID().substr(0, 6);
+}
+
+export default function TwoFactorAuthentication({resetTwoFactorTime}: {resetTwoFactorTime: () => void}) {
+    const [randomCode, setRandomCode] = useState(generateNewCode());
+
+    function onVerify() {
+        resetTwoFactorTime();
+        setRandomCode(generateNewCode());
+    }
+
     return (
         <div style={{
             width: "100%",
@@ -52,7 +64,7 @@ export default function TwoFactorAuthentication() {
                         padding: "0"
                     }}>Enter the code displayed in the authenticator app on your mobile device</p>
                 </div>
-                <input type="text" placeholder="Code" style={{
+                <input type="text" placeholder="Code" disabled value={randomCode} style={{
                     fontSize: "20px",
                     margin: "0",
                     padding: "0",
@@ -96,21 +108,22 @@ export default function TwoFactorAuthentication() {
                             padding: "0"
                         }}>Cancel</p>
                     </div>
-                    <div style={{
+                    <button onClick={onVerify} style={{
                         background: "#0067b8",
                         width: "128px",
                         height: "42px",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
-                        color: "white"
+                        color: "white",
+                        cursor: "pointer"
                     }}>
                         <p style={{
                             fontSize: "20px",
                             margin: "0",
                             padding: "0"
                         }}>Verify</p>
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>

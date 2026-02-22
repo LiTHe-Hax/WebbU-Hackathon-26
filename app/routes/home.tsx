@@ -34,11 +34,20 @@ export default function Home() {
   const [raccursorEnabled, setRaccursorEnabled] = useState(false);
   const [editingEnabled, setEditingEnabled] = useState(false);
 
+  const [twoFactorTime, setTwoFactorTime] = useState(Date.now());
+
   const [showTermPointer, setShowTermPointer] = useState<boolean>(true);
   const [showTerminal, setShowTerminal] = useState<boolean>(false)
   const [commandResponse, setCommandResponse] = useState<string>("Do you want to");
   const [terminalText, setTerminalText] = useState<string>("");
   const [commands, setCommands] = useState<TerminalCommand[]>([
+    {
+      desc: "use raccursor",
+      onRun: () => {
+        setRaccursorEnabled(true);
+        setCommandResponse("Activating cute cursor!");
+      }
+    },
     { 
       desc: "set lisam on fire",
       onRun: () => {
@@ -68,11 +77,10 @@ export default function Home() {
       }
     },
     {
-      desc: "trigger 2FA",
+      desc: "edit the page",
       onRun: () => {
-        setTwoFactorEnabled(true);
-        // TODO: set proper message
-        setCommandResponse("TODO: 2FA message");
+        setEditingEnabled(true);
+        setCommandResponse("This site could use a redesign!");
       }
     },
     {
@@ -83,18 +91,10 @@ export default function Home() {
       }
     },
     {
-      desc: "use raccursor",
+      desc: "trigger 2FA",
       onRun: () => {
-        setRaccursorEnabled(true);
-        // TODO: set proper message
-        setCommandResponse("TODO: raccursor message");
-      }
-    },
-    {
-      desc: "edit the page",
-      onRun: () => {
-        setEditingEnabled(true);
-        setCommandResponse("This site could use a redesign!");
+        setTwoFactorEnabled(true);
+        setCommandResponse("Made your account more secure!");
       }
     }
   ]);
@@ -130,6 +130,13 @@ export default function Home() {
     }
   }
 
+  function resetTwoFactorTime() {
+    setTwoFactorEnabled(false);
+    setTimeout(() => {
+      setTwoFactorEnabled(true);
+    }, 10000);
+  }
+
   useEffect(() => {
     let newTerminalText = commandResponse + "\n";
     commands.forEach((command, idx) => {
@@ -139,57 +146,53 @@ export default function Home() {
     setTerminalText(newTerminalText);
   }, [commandResponse]);
 
-  const tfaEnabled: boolean = false
-
   return (
     <div style={{cursor: raccursorEnabled ? "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🦝</text></svg>\") 16 0, auto" : "default"}}>
-      { tfaEnabled ?
-      <TwoFactorAuthentication /> :
-      <>
-      <PageHeader fireToggled={fireToggled} logoSwitched={logoSwitched} historyAvailable={historyAvailable} />
-      <main>
-        <div style={{ padding: "0 16px", }}>
-          <CoursesSection isEditing={editingEnabled} />
-          <NewsSection memeifyNews={memeifyNews} />
-          <Links teleportingCert={teleportingCert} />
-        </div>
-      </main>
-      <Footer />
-      {showTerminal && (
-        <form className="terminal-win" onSubmit={hax}>
-          <pre>{terminalText}</pre>
-          <input name="command" id="command" autoComplete="off" />
-          <div className="input-prompt">&gt;</div>
-        </form>
-      )}
-
-      <div style={{
-        position: "fixed",
-        zIndex: "1000",
-        right: "40px",
-        bottom: "40px",
-        cursor: "pointer",
-      }}>
-        {showTermPointer && (
-          <div className="terminal-pointer">
-            <Icon type="pointing" />
+      {twoFactorEnabled && <TwoFactorAuthentication resetTwoFactorTime={resetTwoFactorTime} />}
+      <div style={{ display: twoFactorEnabled ? "none" : "contents" }}>
+        <PageHeader fireToggled={fireToggled} logoSwitched={logoSwitched} historyAvailable={historyAvailable} />
+        <main>
+          <div style={{ padding: "0 16px", }}>
+            <CoursesSection isEditing={editingEnabled} />
+            <NewsSection memeifyNews={memeifyNews} />
+            <Links teleportingCert={teleportingCert} />
           </div>
+        </main>
+        <Footer />
+        {showTerminal && (
+          <form className="terminal-win" onSubmit={hax}>
+            <pre>{terminalText}</pre>
+            <input name="command" id="command" autoComplete="off" />
+            <div className="input-prompt">&gt;</div>
+          </form>
         )}
-        <button style={{
-          width: "50px",
-          height: "50px",
-          borderRadius: "50%",
-          border: "none",
-          overflow: "hidden",
-          cursor: "inherit",
-          boxShadow: "0 0 10px 0 rgba(0,0,0,.4)"
-        }}
-          onClick={toggleTerminal}>
-          <img src="https://github.com/LiTHe-Hax/website-assets/blob/main/images/2025-2026/contacts/board/tyson_h.jpg?raw=true" />
-        </button>
+
+        <div style={{
+          position: "fixed",
+          zIndex: "1000",
+          right: "40px",
+          bottom: "40px",
+          cursor: "pointer",
+        }}>
+          {showTermPointer && (
+            <div className="terminal-pointer">
+              <Icon type="pointing" />
+            </div>
+          )}
+          <button style={{
+            width: "50px",
+            height: "50px",
+            borderRadius: "50%",
+            border: "none",
+            overflow: "hidden",
+            cursor: "inherit",
+            boxShadow: "0 0 10px 0 rgba(0,0,0,.4)"
+          }}
+            onClick={toggleTerminal}>
+            <img src="https://github.com/LiTHe-Hax/website-assets/blob/main/images/2025-2026/contacts/board/tyson_h.jpg?raw=true" />
+          </button>
+        </div>
       </div>
-      </>
-      }
     </div>
   );
 }
